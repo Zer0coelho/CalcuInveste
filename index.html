@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carteira Inteligente</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="icon" href="invest.png">
+</head>
+
+<body>
+    <header>
+        <h1>📊 Carteira Inteligente</h1>
+    </header>
+
+    <main>
+        <!-- Formulário de ativos -->
+        <section class="card">
+            <h2>Adicionar/Editar Ativo</h2>
+            <form id="formAtivo">
+                <input type="text" id="nome" placeholder="Nome do ativo" required>
+                <select id="tipo" required>
+                    <option value="">Tipo do ativo</option>
+                    <option value="Ação">Ação</option>
+                    <option value="FII">FII</option>
+                    <option value="Tesouro Direto">Tesouro Direto</option>
+                    <option value="Criptomoeda">Criptomoeda</option>
+                    <option value="Renda Fixa">Renda Fixa</option>
+                    <option value="ETF">ETF</option>
+                    <option value="BDR">BDR</option>
+                </select>
+                <input type="number" id="quantidade" placeholder="Quantidade" step="0.01" required>
+                <input type="number" id="precoMedio" placeholder="Preço médio (R$)" step="0.01" required>
+                <input type="number" id="precoAtual" placeholder="Preço atual da cota (R$)" step="0.01" required>
+                <input type="number" id="meta" placeholder="Meta % do ativo" step="0.01" required>
+                <button type="submit" id="btnAdicionar">Adicionar</button>
+                <button type="button" id="limparAtivos">Limpar Ativos</button>
+            </form>
+        </section>
+
+        <!-- Tabelas separadas por tipo -->
+        <section class="card">
+            <h2>Carteira por Tipo de Ativo</h2>
+            <div id="tabelasPorTipo"></div>
+        </section>
+
+        <!-- Investimento mensal -->
+        <section class="card">
+            <h2>Investir Hoje</h2>
+            <form id="formInvestir">
+                <input type="number" id="valorInvestir" placeholder="Valor para investir (R$)" step="0.01" required>
+                <button type="submit">Calcular Alocação</button>
+            </form>
+            <div id="sugestao"></div>
+        </section>
+
+        <!-- Gráfico -->
+        <section class="card">
+            <h2>Distribuição da Carteira</h2>
+            <canvas id="grafico"></canvas>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
